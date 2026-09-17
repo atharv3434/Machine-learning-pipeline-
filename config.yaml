@@ -1,0 +1,37 @@
+# Configuration for the PySpark MLlib churn classification pipeline.
+
+data_path: data/customer_churn.csv
+model_path: models/churn_pipeline_model
+metrics_report_path: output/metrics_report.md
+figures_dir: output/figures
+
+target_col: churn
+id_col: customer_id
+
+numeric_features:
+  - tenure_months
+  - num_support_tickets
+  - monthly_charges
+  - total_charges
+  - age
+  - is_senior
+
+categorical_features:
+  - contract_type
+  - internet_service
+  - tech_support
+  - payment_method
+
+test_size: 0.2
+random_state: 42
+
+# Which MLlib classifiers to train and compare. Both are trained; whichever
+# scores higher on AUC is saved as the final model.
+models:
+  - logistic_regression
+  - random_forest
+
+# Spark session settings
+spark_app_name: churn-mllib-pipeline
+spark_master: "local[*]"
+spark_shuffle_partitions: 8   # kept low since this runs on a single local machine with a small dataset
