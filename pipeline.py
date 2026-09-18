@@ -14,10 +14,10 @@ from pyspark.ml.classification import LogisticRegression, RandomForestClassifier
 
 CLASSIFIER_BUILDERS = {
     "logistic_regression": lambda seed: LogisticRegression(
-        featuresCol="scaled_features", labelCol="label", maxIter=50,
+        featuresCol="scaled_features", labelCol="label", weightCol="class_weight", maxIter=50,
     ),
     "random_forest": lambda seed: RandomForestClassifier(
-        featuresCol="scaled_features", labelCol="label", numTrees=200, seed=seed,
+        featuresCol="scaled_features", labelCol="label", weightCol="class_weight", numTrees=200, seed=seed,
     ),
 }
 
