@@ -10,7 +10,8 @@ def load_config(config_path="config.yaml"):
 
 
 def get_spark_session(config):
-    """Create (or fetch) a local SparkSession using the settings in config.yaml.
+    """
+    Create (or fetch) a local SparkSession using the settings in config.yaml.
 
     Running with master="local[*]" uses all CPU cores on this machine as
     Spark "executors" — the same DataFrame/MLlib API works unchanged on a
