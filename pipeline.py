@@ -1,4 +1,5 @@
-"""Train and evaluate MLlib classifiers on Spark, then save the
+"""
+Train and evaluate MLlib classifiers on Spark, then save the
 best-performing pipeline model.
 
 Usage:
@@ -9,6 +10,7 @@ one-hot encoding + assembling + scaling + classifier) for each configured
 model, evaluates both with Spark's BinaryClassificationEvaluator, and
 persists the higher-AUC PipelineModel to disk using Spark's native model
 format.
+
 """
 
 import argparse
@@ -67,7 +69,8 @@ def evaluate_predictions(predictions):
 
 
 def get_roc_points(predictions):
-    """Extract (label, positive-class-probability) pairs and compute an ROC
+    """
+    Extract (label, positive-class-probability) pairs and compute an ROC
     curve with numpy. Collecting to the driver is reasonable here since
     it's just the test split of a modest dataset — for a genuinely huge
     test set you'd sample first.
