@@ -1,4 +1,5 @@
-"""Generate a synthetic customer churn dataset for the PySpark MLlib pipeline.
+"""
+Generate a synthetic customer churn dataset for the PySpark MLlib pipeline.
 
 This project ships with pre-generated data already in place
 (data/customer_churn.csv), so you don't need to run this to try the
@@ -7,6 +8,7 @@ a different seed.
 
 Usage:
     python data/generate_data.py [--n 5000] [--seed 42] [--out data/customer_churn.csv]
+    
 """
 
 import argparse
